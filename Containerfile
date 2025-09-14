@@ -58,7 +58,8 @@ RUN --mount=type=tmpfs,dst=/tmp cd /tmp && \
 
 RUN echo "$(basename "$(find /usr/lib/modules -maxdepth 1 -type d | grep -v -E "*.img" | tail -n 1)")" > kernel_version.txt && \
     dracut --force --no-hostonly --reproducible --zstd --verbose --kver "$(cat kernel_version.txt)"  "/usr/lib/modules/$(cat kernel_version.txt)/initramfs.img" && \
-    cp /usr/src/linux-$(cat kernel_version.txt)/arch/*/boot/bzImage "/usr/lib/modules/$(cat kernel_version.txt)/vmlinuz" && \
+    rm "/usr/lib/modules/$(cat kernel_version.txt)/vmlinuz" && \
+    cp -f /usr/src/linux-$(cat kernel_version.txt)/arch/*/boot/bzImage "/usr/lib/modules/$(cat kernel_version.txt)/vmlinuz" && \
     rm kernel_version.txt
 
 # Setup a temporary root passwd (changeme) for dev purposes
