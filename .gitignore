@@ -1,0 +1,5 @@
+cosign.key
+*.img
+_build_*
+output
+_build-*/**
