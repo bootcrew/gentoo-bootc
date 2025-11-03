@@ -30,6 +30,12 @@ RUN emerge \
     systemd \
     zstd
 
+# FIXME: remove this once upstream has new ostree please
+RUN --mount=type=tmpfs,dst=/tmp cd /tmp && \
+    git clone https://github.com/EWouters/gentoo gentoo -b ostree --depth 1 --single-branch && \
+    cd gentoo && \
+    ebuild dev-util/ostree/ostree-2025.6.ebuild clean install merge
+
 RUN --mount=type=tmpfs,dst=/tmp --mount=type=tmpfs,dst=/root \
     git clone https://github.com/bootc-dev/bootc.git /tmp/bootc && \
     cd /tmp/bootc && \
