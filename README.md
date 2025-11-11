@@ -1,6 +1,6 @@
 # Gentoo Bootc
 
-Gentoo base image for Bootc!
+Reference [Gentoo](https://www.gentoo.org/) container image preconfigured for [bootc](https://github.com/bootc-dev/bootc) usage.
 
 <img width="1520" height="667" alt="image" src="https://github.com/user-attachments/assets/169a29b4-02f6-4f5f-bff9-fdfc42713746" />
 
