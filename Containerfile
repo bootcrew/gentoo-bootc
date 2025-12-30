@@ -35,4 +35,7 @@ RUN sed -i 's|^HOME=.*|HOME=/var/home|' "/etc/default/useradd" && \
 # Setup a temporary root passwd (changeme) for dev purposes
 RUN usermod -p "$(echo "changeme" | mkpasswd -s)" root
 
+# https://bootc-dev.github.io/bootc/bootc-images.html#standard-metadata-for-bootc-compatible-images
+LABEL containers.bootc 1
+
 RUN bootc container lint
